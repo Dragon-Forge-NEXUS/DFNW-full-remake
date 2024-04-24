@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+// import { posts } from "~/server/db/schema";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
@@ -31,6 +31,12 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
+        <h1>List of Posts</h1>
+        <ul>
+          {/* {posts.map((posts) => (
+            <li key={posts.id}>{item.name}</li>
+          ))} */}
+        </ul>
       </div>
     </main>
   );

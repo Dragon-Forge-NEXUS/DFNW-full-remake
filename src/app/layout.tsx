@@ -1,8 +1,9 @@
 import "~/styles/globals.css";
-
-import { Inter } from "next/font/google";
-
-const inter = Inter({
+import { Roboto as FontSans } from "next/font/google";
+import { cn } from "~/lib/utils";
+ 
+const fontSans = FontSans({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -20,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+        {children}
+      </body>
     </html>
   );
 }
