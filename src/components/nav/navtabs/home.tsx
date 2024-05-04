@@ -1,15 +1,11 @@
-import Link from "next/link"
-import { Button } from "~/components/ui/button"
+import LinkBtn from "~/components/button/link"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card"
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
 import {
   Tabs,
   TabsContent,
@@ -19,11 +15,13 @@ import {
 
 export function NavTabs() {
   return (
-    <Tabs defaultValue="DFN" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-3">
+    <Tabs defaultValue="DFN" className="w-[400]">
+      <TabsList className="grid w-full grid-cols-5">
         <TabsTrigger value="DFN">DFN</TabsTrigger>
         <TabsTrigger value="DFG">DFG</TabsTrigger>
-        <TabsTrigger value="External">DFG</TabsTrigger>
+        <TabsTrigger value="DFM">DFM</TabsTrigger>
+        <TabsTrigger value="DFC">Code</TabsTrigger>
+        <TabsTrigger value="External">External</TabsTrigger>
       </TabsList>
       <TabsContent value="DFN">
         <Card>
@@ -34,48 +32,54 @@ export function NavTabs() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="/">The NEXUS</Link>
-              </Button>
-            </div>
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="/partners">Partners</Link>
-              </Button>
-            </div>
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="/blog">Blog</Link>
-              </Button>
-            </div>
+            <LinkBtn href="/" variant={'outline'}>The NEXUS</LinkBtn>
+            <LinkBtn href="/partners" variant={'outline'}>Partners</LinkBtn>
+            <LinkBtn href="/blog" variant={'outline'}>Blog</LinkBtn>
           </CardContent>
-          <CardFooter>
-            All of these sites are internal
-          </CardFooter>
         </Card>
       </TabsContent>
       <TabsContent value="DFG">
         <Card>
           <CardHeader>
-            <CardTitle>Password</CardTitle>
+            <CardTitle>DFG</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you&apos;ll be logged out.
+              DragonForgeGaming Navigation
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
+          <CardContent className="flex flex-wrap gap-2">
+            <LinkBtn href="/gaming" variant={'outline'}>Gaming Home</LinkBtn>
+            <LinkBtn href="/blog?tags=gaming" variant={'outline'}>Blog</LinkBtn>
+            <LinkBtn href="/code/gaming/api" variant={'outline'}>API</LinkBtn>
           </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="DFC">
+        <Card>
+          <CardHeader>
+            <CardTitle>Code</CardTitle>
+            <CardDescription>
+              DragonForgeCode navigation
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <LinkBtn href="/code" variant={'outline'}>Code</LinkBtn>
+            <LinkBtn href="/code/api" variant={'outline'}>API</LinkBtn>
+            <LinkBtn href="/code/gaming/api" variant={'outline'}>Gaming API</LinkBtn>
+            <LinkBtn href="https://github.com/Dragon-Forge-NEXUS" variant={'outline'} isExternal>GitHub</LinkBtn>
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="DFM">
+        <Card>
+          <CardHeader>
+            <CardTitle>DFM</CardTitle>
+            <CardDescription>
+              DragonForgeMedia navigation
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            🚧Pardon our dust🚧<br />We are working on bringing this site into production.
+          </CardContent>
         </Card>
       </TabsContent>
       <TabsContent value="External">
@@ -87,25 +91,9 @@ export function NavTabs() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="https://github.com/Dragon-Forge-NEXUS">GitHub</Link>
-              </Button>
-            </div>
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="https://nightly.dragonforgenexus.xyz">nightly</Link>
-              </Button>
-            </div>
-            <div className="">
-              <Button asChild variant={'outline'}>
-                <Link href="/">Social 1</Link>
-              </Button>
-            </div>
+            <LinkBtn href="https://github.com/Dragon-Forge-NEXUS" variant={'outline'} isExternal>GitHub</LinkBtn>
+            <LinkBtn href="https://nightly.dragonforgenexus.xyz" variant={'outline'} isExternal>Nightly</LinkBtn>
           </CardContent>
-          <CardFooter>
-            All of these sites are external
-          </CardFooter>
         </Card>
       </TabsContent>
     </Tabs>
