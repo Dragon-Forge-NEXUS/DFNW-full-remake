@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { sql } from ""
+// import { sql } from ""
 import { env } from "~/env";
 import * as schema from "./schema";
 
